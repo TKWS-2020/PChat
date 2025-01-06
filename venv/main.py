@@ -11,7 +11,7 @@ import os
 
 cwd = os.getcwd()
 print(cwd)
-img = image.open("app/static/donpenProf03.png")
+img = image.open("/mount/src/pchat/venv/static/donpenProf03.png")
 
 def init_page():
     st.set_page_config(
