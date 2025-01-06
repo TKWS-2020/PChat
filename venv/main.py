@@ -20,7 +20,7 @@ def init_page():
     st.markdown(
         """
     <h1>
-        <img src="app/static/donpenProf03.png" alt="header image" width="50">
+        <img src="./app/static/donpenProf03.png" alt="header image" width="50">
         PPIHサービスチャット
     </h1>
     """,
