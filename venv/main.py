@@ -10,18 +10,16 @@ from PIL import Image as image
 import os
 
 cwd = os.getcwd()
-print(cwd)
 files = os.listdir(cwd)
-print(files)
 #img = image.open(cwd + "/venv/static/donpenProf03.png")
 
 def init_page():
     st.set_page_config(
-        page_title="PPIH ChatGPT"
+        page_title="PPIH ChatGPT" + cwd + files
     )
     # Markdownで画像とテキストを埋め込む
     st.markdown(
-        """
+        """S
     <h1>
         <img src="./app/static/donpenProf03.png" alt="header image" width="50">
         PPIHサービスチャット
