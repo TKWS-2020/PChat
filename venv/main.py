@@ -10,8 +10,7 @@ from PIL import Image as image
 import os
 
 cwd = os.getcwd()
-files = os.listdir(cwd+"/venv/static")
-#img = image.open(cwd + "/venv/static/donpenProf03.png")
+img = image.open(cwd + "/venv/static/donpenprof03.png")
 
 def init_page():
     st.set_page_config(
@@ -27,7 +26,7 @@ def init_page():
     """,
     unsafe_allow_html=True
     )
-    st.sidebar.title(files[0])
+    st.sidebar.title("Options")
 
 def init_messages():
     clear_button = st.sidebar.button("Clear Conversation", key="clear")
