@@ -10,7 +10,7 @@ from PIL import Image as image
 import os
 
 cwd = os.getcwd()
-files = os.listdir(cwd+"/venv/")
+files = os.listdir(cwd+"/venv/static")
 #img = image.open(cwd + "/venv/static/donpenProf03.png")
 
 def init_page():
