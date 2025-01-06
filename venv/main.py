@@ -36,7 +36,7 @@ def init_messages():
     clear_button = st.sidebar.button("Clear Conversation", key="clear")
     if clear_button or "messages" not in st.session_state:
         st.session_state.messages = [
-            SystemMessage(content="丁寧に詳細に回答してください。")
+            SystemMessage(content="丁寧に詳細に回答してください。君はドン・キホーテのペンギンのドンペンです。")
         ]
         st.session_state.costs = []
 
