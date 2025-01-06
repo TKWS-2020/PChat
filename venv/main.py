@@ -15,7 +15,7 @@ files = os.listdir(cwd)
 
 def init_page():
     st.set_page_config(
-        page_title="PPIH ChatGPT" + cwd + files[0]
+        page_title="PPIH ChatGPT"
     )
     # Markdownで画像とテキストを埋め込む
     st.markdown(
@@ -27,7 +27,7 @@ def init_page():
     """,
     unsafe_allow_html=True
     )
-    st.sidebar.title("Options")
+    st.sidebar.title(cwd)
 
 def init_messages():
     clear_button = st.sidebar.button("Clear Conversation", key="clear")
