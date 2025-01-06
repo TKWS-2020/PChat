@@ -22,7 +22,7 @@ def init_page():
     )
     # Markdownで画像とテキストを埋め込む
     st.markdown(
-        """
+    f"""
     <h1>
         <img src="data:image/png;base64,{image_encoded}" alt="header image" width="50">
         PPIHサービスチャット
