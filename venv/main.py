@@ -7,10 +7,14 @@ from langchain.schema import (
 )
 from langchain.callbacks import StreamlitCallbackHandler
 from PIL import Image as image
+from pathlib import Path
 import os
+import base64
 
 cwd = os.getcwd()
 img = image.open(cwd + "/venv/static/donpenprof03.png")
+image_bytes = Path(cwd + "/venv/static/donpenprof03.png").read_bytes()
+image_encoded = base64.b64encode(image_bytes).decode()
 
 def init_page():
     st.set_page_config(
@@ -20,7 +24,7 @@ def init_page():
     st.markdown(
         """
     <h1>
-        <img src="./app/static/donpenProf03.png" alt="header image" width="50">
+        <img src="data:image/png;base64,{image_encoded}" alt="header image" width="50">
         PPIHサービスチャット
     </h1>
     """,
