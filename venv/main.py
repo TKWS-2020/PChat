@@ -18,7 +18,7 @@ def init_page():
     )
     # Markdownで画像とテキストを埋め込む
     st.markdown(
-        """S
+        """
     <h1>
         <img src="./app/static/donpenProf03.png" alt="header image" width="50">
         PPIHサービスチャット
@@ -59,7 +59,7 @@ def main():
     messages = st.session_state.get('messages', [])
     for message in messages:
         if isinstance(message, AIMessage):
-            with st.chat_message('assistant'):
+            with st.chat_message('assistant',avatar=img):
                 st.markdown(message.content)
         elif isinstance(message, HumanMessage):
             with st.chat_message('user'):
@@ -70,7 +70,7 @@ def main():
     if user_input:
         st.session_state.messages.append(HumanMessage(content=user_input))
         st.chat_message("user").markdown(user_input)
-        with st.chat_message("assistant"):
+        with st.chat_message("assistant",avatar=img):
             st_callback = StreamlitCallbackHandler(st.container())
             response = llm(messages, callbacks=[st_callback])
         st.session_state.messages.append(AIMessage(content=response.content))
