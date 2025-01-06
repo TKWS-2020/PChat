@@ -15,7 +15,7 @@ files = os.listdir(cwd)
 
 def init_page():
     st.set_page_config(
-        page_title="PPIH ChatGPT" + cwd + files
+        page_title="PPIH ChatGPT" + cwd + files[0]
     )
     # Markdownで画像とテキストを埋め込む
     st.markdown(
