@@ -11,7 +11,9 @@ import os
 
 cwd = os.getcwd()
 print(cwd)
-img = image.open(cwd + "/venv/static/donpenProf03.png")
+files = os.listdir(cwd)
+print(files)
+#img = image.open(cwd + "/venv/static/donpenProf03.png")
 
 def init_page():
     st.set_page_config(
@@ -60,7 +62,7 @@ def main():
     messages = st.session_state.get('messages', [])
     for message in messages:
         if isinstance(message, AIMessage):
-            with st.chat_message('assistant',avatar=img):
+            with st.chat_message('assistant'):
                 st.markdown(message.content)
         elif isinstance(message, HumanMessage):
             with st.chat_message('user'):
@@ -71,7 +73,7 @@ def main():
     if user_input:
         st.session_state.messages.append(HumanMessage(content=user_input))
         st.chat_message("user").markdown(user_input)
-        with st.chat_message("assistant",avatar=img):
+        with st.chat_message("assistant"):
             st_callback = StreamlitCallbackHandler(st.container())
             response = llm(messages, callbacks=[st_callback])
         st.session_state.messages.append(AIMessage(content=response.content))
