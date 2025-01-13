@@ -12,8 +12,9 @@ import os
 import base64
 
 cwd = os.getcwd()
-img = image.open(cwd + "/venv/static/donpenprof03.png")
-image_bytes = Path(cwd + "/venv/static/donpenprof03.png").read_bytes()
+img_path = cwd + "/venv/static/donpenprof03.png"
+img = image.open(img_path)
+image_bytes = Path(img_path).read_bytes()
 image_encoded = base64.b64encode(image_bytes).decode()
 
 def init_page():
@@ -38,7 +39,6 @@ def init_messages():
         st.session_state.messages = [
             SystemMessage(content="丁寧に詳細に回答してください。君はドン・キホーテのペンギンのドンペンです。")
         ]
-        st.session_state.costs = []
 
 
 def select_model():
@@ -77,7 +77,8 @@ def main():
         with st.chat_message("assistant",avatar=img):
             st_callback = StreamlitCallbackHandler(st.container())
             response = llm(messages, callbacks=[st_callback])
-        st.session_state.messages.append(AIMessage(content=response.content))
+            st.write(response) # 応答をStreamlitのチャットに表示する
+        #st.session_state.messages.append(AIMessage(content=response.content))
 
 if __name__ == '__main__':
     main()
